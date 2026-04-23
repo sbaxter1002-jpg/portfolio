@@ -1,0 +1,35 @@
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background: #1e1e2e;
+    color: #84D287;
+    padding: 20px;
+    border-right: solid 4px #84D287;
+}
+
+.home {
+    color: #84D287;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.gtSign {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+a:hover .gtSign {
+    transform: rotate(90deg);
+}
+
+.navLinks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.about, .projects, .experience, .contact {
+    color: #84D287;
+    text-decoration: none;
+    font-size: 1.5em;
+}
