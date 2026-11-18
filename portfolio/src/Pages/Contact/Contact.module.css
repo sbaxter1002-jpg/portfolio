@@ -1,0 +1,24 @@
+.headerDiv {
+    color: #84D287;
+    padding: 30px;
+    font-size: 40px;
+    min-height: 200px;
+}
+
+.introduction {
+    color: #84D287;
+    font-size: 25px;
+    padding-left: 30px;
+}
+
+.heading {
+    font-size: 65px;
+}
+
+.links {
+    color: #84D287;
+    position: relative;
+    padding-left: 10px;
+    bottom: 16px;
+    text-decoration: underline;
+}

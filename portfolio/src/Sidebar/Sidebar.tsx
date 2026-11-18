@@ -1,21 +1,59 @@
+import { NavLink } from 'react-router-dom';
 import styles from './Sidebar.module.css'
 import folderIcon from '../assets/folderPic.png'
+import textIcon from '../assets/textPic.png'
 
-function Header() {
+function Sidebar() {
+    const linkClass = ({ isActive }) =>
+    `${styles.link} ${isActive ? styles.active : ""}`;
+
     return(
         <nav className={styles.sidebar}>
             <p>~/..</p>
-            <a href="../Pages/Home/Home.tsx" className={styles.home}><b><span className={styles.gtSign}>&gt;</span> <img src={folderIcon} alt="Folder" width={16}/> Stuart Baxter</b></a>
+
             <div className={styles.navMenu}>
                 <ul className={styles.navLinks}>
-                    <li className={styles.navLink}><a className={styles.about} href="../Pages/About.tsx"><span className={styles.gtSign}>&gt;</span> <img src={folderIcon} alt="Folder" width={16}/> About</a></li>
-                    <li className={styles.navLink}><a className={styles.projects} href="../Pages/Projects.tsx"><span className={styles.gtSign}>&gt;</span> <img src={folderIcon} alt="Folder" width={16}/> Projects</a></li>
-                    <li className={styles.navLink}><a className={styles.experience} href="../Pages/Experience.tsx"><span className={styles.gtSign}>&gt;</span> <img src={folderIcon} alt="Folder" width={16}/> Experience</a></li>
-                    <li className={styles.navLink}><a className={styles.contact} href="../Pages/Contact.tsx"><span className={styles.gtSign}>&gt;</span> <img src={folderIcon} alt="Folder" width={16}/> Contact</a></li>
+
+                    <li className={styles.navLink}>
+                        <NavLink to="/Home" className={linkClass}>
+                            <b>
+                                <span className={styles.gtSign}>&gt;</span>
+                                <img src={textIcon} alt="Text" width={16} /> Stuart_Baxter
+                            </b>                        
+                        </NavLink>
+                    </li>
+
+                    <li className={styles.navLink}>
+                        <NavLink to="/About" className={linkClass}>
+                            <span className={styles.gtSign}>&gt;</span>
+                            <img src={folderIcon} alt="Folder" width={16} /> About
+                        </NavLink>
+                    </li>
+
+                    <li className={styles.navLink}>
+                        <NavLink to="/Projects" className={linkClass}>
+                            <span className={styles.gtSign}>&gt;</span>
+                            <img src={folderIcon} alt="Folder" width={16} /> Projects
+                        </NavLink>
+                    </li>
+
+                    <li className={styles.navLink}>
+                        <NavLink to="/Experience" className={linkClass}>
+                            <span className={styles.gtSign}>&gt;</span>
+                            <img src={folderIcon} alt="Folder" width={16} /> Experience
+                        </NavLink>
+                    </li>
+
+                    <li className={styles.navLink}>
+                        <NavLink to="/Contact" className={linkClass}>
+                            <span className={styles.gtSign}>&gt;</span>
+                            <img src={folderIcon} alt="Folder" width={16} /> Contact
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
         </nav>
     );
 }
 
-export default Header
+export default Sidebar

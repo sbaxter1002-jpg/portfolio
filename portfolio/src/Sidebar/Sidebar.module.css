@@ -7,29 +7,59 @@
     border-right: solid 4px #84D287;
 }
 
-.home {
+/* Shared link style (replaces .home, .about, etc.) */
+.link {
+    display: block;
     color: #84D287;
     text-decoration: none;
     font-size: 1.5em;
+    padding-left: 10px;
 }
 
+/* Arrow animation */
 .gtSign {
     display: inline-block;
     transition: transform 0.25s ease;
+    margin-right: 5px;
 }
 
-a:hover .gtSign {
+/* Hover effect (same as before) */
+.link:hover .gtSign {
     transform: rotate(90deg);
 }
 
+/* Active click (momentary press) */
+.link:active .gtSign {
+    transform: rotate(90deg);
+}
+
+/* Persistent active route (NEW - replaces a:active usage) */
+.link.active {
+    background-color: #84D287;
+    color: #1e1e2e;
+}
+
+/* Ensure text + images inherit active color */
+.active img {
+    filter: brightness(0.2);
+}
+
+/* Navigation list */
 .navLinks {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.about, .projects, .experience, .contact {
-    color: #84D287;
-    text-decoration: none;
-    font-size: 1.5em;
+.navLink {
+    margin: 5px 0;
+}
+
+/* Optional container */
+.navMenu {
+    margin-top: 10px;
+}
+
+.active .gtSign {
+    transform: rotate(90deg);
 }

@@ -1,0 +1,18 @@
+.mainHome {
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  background-color: #1e1e2d;
+}
+
+.mainHome p {
+  color: white;
+  font-size: 40px;
+}
+
+.thing {
+  color: #84D287;
+  font-size: 40px;
+  padding: 30px;
+  min-height: 200px;
+}
