@@ -1,24 +1,245 @@
-.headerDiv {
-    color: #84D287;
-    padding: 30px;
-    font-size: 40px;
-    min-height: 200px;
+.container {
+    --green: #98d98e;
+    --green-dim: #7fb877;
+    --accent: #f5c26b; /* amber for links*/
+    --bg-raised: #2a2a3d;
+    --bg-terminal: #15151f;
+    --border: #3a3a52;
+
+    /* default size to change for individual things*/
+    --base-size: clamp(1rem, 0.6rem + 0.9vw, 1.6rem);
+    --icon-size: clamp(2.5rem, 4.5vw, 4.5rem);
+
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto; /* scrolls only when the content is taller than the window */
+    scrollbar-width: thin;
+    scrollbar-color: var(--green-dim) transparent;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1rem, 4vh, 3rem) clamp(1.5rem, 5vw, 5rem);
+    font-size: var(--base-size);
 }
 
-.introduction {
-    color: #84D287;
-    font-size: 25px;
-    padding-left: 30px;
+/* Centred when it fits; starts at the top and scrolls when it doesn't */
+.content {
+    margin-block: auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 6vh, 4rem);
+}
+
+/* Top: intro on the left, status panel on the right */
+.top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 3vh, 2rem) clamp(2rem, 5vw, 5rem);
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .top {
+        grid-template-columns: 1.2fr 1fr;
+    }
 }
 
 .heading {
-    font-size: 65px;
+    margin: 0 0 clamp(0.75rem, 2.5vh, 1.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+    line-height: 1.1;
+    color: var(--green);
 }
 
-.links {
-    color: #84D287;
-    position: relative;
-    padding-left: 10px;
-    bottom: 16px;
+/* Blinking block cursor after the heading */
+.cursor {
+    display: inline-block;
+    width: 0.45em;
+    height: 0.85em;
+    margin-left: 0.2em;
+    vertical-align: baseline;
+    background-color: var(--green);
+    animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.copy {
+    margin: 0;
+    max-width: 48ch;
+    color: var(--green-dim);
+    line-height: 1.7;
+}
+
+/* Status block */
+.status {
+    margin: 0;
+    padding: clamp(0.75rem, 2.5vh, 1.75rem) clamp(1rem, 2vw, 2rem);
+    display: grid;
+    gap: clamp(0.4rem, 1.2vh, 0.9rem);
+    background-color: var(--bg-terminal);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--green);
+    border-radius: 4px;
+}
+
+.statusRow {
+    display: grid;
+    grid-template-columns: 12ch 1fr;
+    gap: 1rem;
+}
+
+.statusRow dt {
+    color: var(--green-dim);
+}
+
+.statusRow dd {
+    margin: 0;
+    color: var(--green);
+}
+
+.dot {
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    margin-right: 0.6em;
+    border-radius: 50%;
+    background-color: var(--green);
+    box-shadow: 0 0 0 0 var(--green);
+    animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(152, 217, 142, 0.6);
+    }
+    70%,
+    100% {
+        box-shadow: 0 0 0 0.6em rgba(152, 217, 142, 0);
+    }
+}
+
+.prompt {
+    margin: 0 0 clamp(0.75rem, 2vh, 1.25rem);
+    color: var(--green-dim);
+}
+
+/* Contact cards across the bottom */
+.cards {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+
+.card {
+    position: relative; /* lets the link cover the whole card */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(0.4rem, 1.2vh, 0.9rem);
+    padding: clamp(1rem, 2.5vh, 1.75rem);
+    background-color: var(--bg-terminal);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.card:hover,
+.card:focus-within {
+    background-color: var(--bg-raised);
+    border-color: var(--accent);
+}
+
+.icon {
+    display: block;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    object-fit: contain;
+}
+
+.link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.15em;
+}
+
+/* Stretch the link's click area over the whole card */
+.link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.card:hover .label {
     text-decoration: underline;
+}
+
+.link:focus-visible {
+    outline: none;
+}
+
+.link:focus-visible::after {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+.handle {
+    color: var(--green-dim);
+    overflow-wrap: anywhere;
+}
+
+.copyButton {
+    position: relative; /* sits above the card's link overlay */
+    z-index: 1;
+    padding: 0.3em 0.8em;
+    font: inherit;
+    font-size: 0.8em;
+    color: var(--green);
+    background: transparent;
+    border: 1px solid var(--green-dim);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.copyButton:hover {
+    background-color: var(--bg-raised);
+}
+
+.copyButton:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+    .statusRow {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        transition: none;
+    }
+    .cursor,
+    .dot {
+        animation: none;
+    }
 }
