@@ -1,4 +1,23 @@
-export const PROJECTS = [
+export type Project = {
+    id: string;
+    name: string;
+    description: string;
+    role?: string;
+    challenges?: string;
+    tech: string[];
+    github: string;
+    demo: string;
+};
+
+export type ExperienceEntry = {
+    id: string;
+    role: string;
+    company: string;
+    period: string;
+    points: string[];
+};
+
+export const PROJECTS: Project[] = [
     {
         id: "rea-assignment",
         name: "REA Assignment",
@@ -25,7 +44,7 @@ export const PROJECTS = [
     },
 ];
 
-export const EXPERIENCE = [
+export const EXPERIENCE: ExperienceEntry[] = [
     {
         id: "word-shadowing",
         role: "Work Shadowing, Software Development",

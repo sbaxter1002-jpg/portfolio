@@ -44,7 +44,7 @@ const LEARNING = ["Game Development", "React"];
 
 const INTERESTS = ["Playing Guitar", "Chess", "Traveling"];
 
-function Chips({ items }) {
+function Chips({ items }: { items: string[] }) {
     return (
         <ul className={styles.chips}>
             {items.map((item) => (

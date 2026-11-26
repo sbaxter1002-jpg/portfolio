@@ -4,7 +4,7 @@ import folderIcon from '../assets/folderPic.png';
 import textIcon from '../assets/textPic.png';
 import githubLogo from '../assets/githubLogo.png';
 import linkedInLogo from '../assets/linkedInLogo.png';
-import { PROJECTS, EXPERIENCE } from '../data/portfolio.js';
+import { PROJECTS, EXPERIENCE } from '../data/portfolio';
 
 const AVAILABLE = true;
 
@@ -23,7 +23,7 @@ const NAV_ITEMS = [
 function Sidebar() {
     const { pathname, hash } = useLocation();
 
-    const linkClass = ({ isActive }) =>
+    const linkClass = ({ isActive }: { isActive: boolean}) =>
         `${styles.link} ${isActive ? styles.active : ''}`;
 
     return (

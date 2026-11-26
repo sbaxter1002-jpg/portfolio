@@ -29,7 +29,7 @@ const STACKED = [
 ];
 
 // draws boxes bright and edges dimmer
-function Art({ lines, className }) {
+function Art({ lines, className }: {lines: string[]; className: string}) {
     return (
         <pre className={className} aria-hidden="true">
             {lines.map((text, i) => (
