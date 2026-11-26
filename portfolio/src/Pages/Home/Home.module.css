@@ -1,0 +1,78 @@
+.container {
+    --green: #98d98e;
+    --green-dim: #7fb877;
+    --shadow: #4f7a4a; /* darker green for the shadow edges of the letters */
+
+    container-type: inline-size;
+
+    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden; /* page never scrolls */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1rem, 4vh, 3rem) clamp(1.5rem, 5vw, 5rem);
+}
+
+/*
+  The block characters need a font that has them
+*/
+.art {
+    margin: 0;
+    font-family: "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    line-height: 1.05;
+    color: var(--green);
+    white-space: pre;
+}
+
+.shadow {
+    color: var(--shadow);
+}
+
+.wide {
+    font-size: min(calc(100cqw / (104 * 0.62)), 1.6rem);
+}
+
+.stacked {
+    display: none;
+    font-size: min(calc(100cqw / (51 * 0.62)), 1.8rem, 3.2vh);
+}
+
+/* Narrow space: switch to the two-line version */
+@container (max-width: 760px) {
+    .wide {
+        display: none;
+    }
+    .stacked {
+        display: block;
+    }
+}
+
+.rule {
+    width: clamp(3rem, 8cqw, 6rem);
+    margin: clamp(1.25rem, 4vh, 2.5rem) 0 clamp(0.75rem, 2vh, 1.25rem);
+    border: none;
+    border-top: 2px solid var(--green-dim);
+}
+
+.subtitle {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.2cqw, 1.75rem);
+    letter-spacing: 0.12em;
+    color: var(--green-dim);
+}
+
+.visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor {
+        animation: none;
+    }
+}
