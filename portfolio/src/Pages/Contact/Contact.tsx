@@ -3,7 +3,7 @@ import styles from "./Contact.module.css";
 import githubLogo from "../../assets/githubLogo.png";
 import linkedInLogo from "../../assets/linkedInLogo.png";
 import mailLogo from "../../assets/mailLogo.png";
-import cvLogo from "../../assets/textPic.png";
+import cvLogo from "../../assets/resumeLogo.png";
 import cvFile from "../../assets/Stuart_Baxter.pdf";
 
 const EMAIL = "sbaxter1002@gmail.com";

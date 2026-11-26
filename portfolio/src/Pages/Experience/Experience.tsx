@@ -18,7 +18,7 @@ function Experience() {
                     Experience<span className={styles.cursor} aria-hidden="true" />
                 </h1>
                 <p className={styles.copy}>
-                    example
+                    Computer Science student at the University of Dundee with experience industry shadowing and with safety critical training.
                 </p>
             </div>
 

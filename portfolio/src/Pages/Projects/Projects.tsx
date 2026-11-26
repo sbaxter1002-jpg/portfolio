@@ -19,7 +19,7 @@ function Projects() {
                     Projects<span className={styles.cursor} aria-hidden="true" />
                 </h1>
                 <p className={styles.copy}>
-                    example
+                    A mix of University and personal projects, covering C++, Java, and web development using React.
                 </p>
             </div>
 

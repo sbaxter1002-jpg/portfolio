@@ -24,23 +24,23 @@ const SKILLS = [
 const TRANSFERABLE = [
     {
         skill: "Teamwork",
-        example: "[Where you worked with others, what your part was, and the result.]",
+        example: "I work well with people from different backgrounds, and I alswats pick up whatever needs doing rather than waiting to be asked.",
     },
     {
         skill: "Communication",
-        example: "[A time you explained something, presented, or wrote documentation.]",
+        example: "While training to become a lifeguard performing rescues as part of a team. Calm, confident communication between lifeguards decide how quickly a casualty can be reached and extracted from the water before first aid can begin.",
     },
     {
         skill: "Problem solving",
-        example: "[A problem you were stuck on, how you approached it, and what fixed it.]",
+        example: "When approaching a problem I always split it into smaller parts. Testing one thing at a time, and comparing multiple approaches before settling on one.",
     },
     {
         skill: "Time management",
-        example: "[A deadline or competing tasks, and how you planned your time.]",
+        example: "I pride myself in remaining organised, I turn up on time, and follow through on what I agree to do.",
     },
 ];
 
-const LEARNING = ["Games Development", "[Another one]"];
+const LEARNING = ["Game Development", "React"];
 
 const INTERESTS = ["Playing Guitar", "Chess", "Traveling"];
 
